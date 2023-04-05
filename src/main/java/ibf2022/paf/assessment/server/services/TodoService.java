@@ -32,19 +32,20 @@ public class TodoService {
         Boolean bUpserted = false; 
 
         // if user does not exist, create user in user SQL table before inserting tasks
-        Optional<User> opt = userRepo.findUserByUsername(username); 
+        // if user does not exist each Task's userId in tasklist  = ""; 
         User user = new User(); 
-
-        if (opt.isEmpty()) {
-            // only username and name required in User class - user_id will be added in insert step 
+        String userId = taskList.get(0).getUserId(); 
+        if (userId.isEmpty()) {
             user.setUsername(username);
             user.setName(username.substring(0,1).toUpperCase() + username.substring(1)); 
-            userRepo.insertUser(user);
+            System.out.printf(">>> user to be added: %s\n", user.toString()); 
+            userId = userRepo.insertUser(user); 
         }
 
         // insert list of tasks 
         List<Integer> rowsAffected = new ArrayList<>(); 
         for (Task t : taskList) {
+            t.setUserId(userId);
             Integer iUpdated = taskRepo.insertTask(t);
             rowsAffected.add(iUpdated);
         }

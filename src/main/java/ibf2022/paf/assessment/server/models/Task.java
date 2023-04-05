@@ -38,6 +38,8 @@ public class Task {
 
             String[] parts = param.split("=");
 
+            // convert "+" to " "
+
             // dont get the data if there is no key-value pair 
             if (parts.length != 2) {continue;}
 

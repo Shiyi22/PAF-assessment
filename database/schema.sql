@@ -21,4 +21,4 @@ create table task (
     constraint task_user_fk foreign key(user_id) references user(user_id)
 ); 
 
-insert into task (user_id, description, priority, due_date) values ('', '', , );
+-- insert into task (user_id, description, priority, due_date) values ('', '', , '');
