@@ -2,7 +2,6 @@ package ibf2022.paf.assessment.server.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +37,7 @@ public class TodoService {
         if (userId.isEmpty()) {
             user.setUsername(username);
             user.setName(username.substring(0,1).toUpperCase() + username.substring(1)); 
-            System.out.printf(">>> user to be added: %s\n", user.toString()); 
+            // System.out.printf(">>> user to be added: %s\n", user.toString()); 
             userId = userRepo.insertUser(user); 
         }
 

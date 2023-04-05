@@ -29,7 +29,7 @@ public class TasksController {
     @Autowired
     private TodoService todoSvc; 
 
-    @PostMapping("/task")
+    @PostMapping(path="/task")
     public ModelAndView processSave(@RequestBody String payload) throws ParseException {
         
         Boolean bContinue = true; 
@@ -48,11 +48,10 @@ public class TasksController {
         String username = taskMap.get("username"); 
 
         // check for spaces in username 
-        if (username.contains("+"))
+        if (username.contains(" "))
             bContinue = false; 
 
         if (bContinue) {
-
             Optional<User> opt = userRepo.findUserByUsername(username); 
             String userId = ""; 
             if (opt.isPresent()) {

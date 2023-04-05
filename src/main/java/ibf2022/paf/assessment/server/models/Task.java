@@ -39,6 +39,9 @@ public class Task {
             String[] parts = param.split("=");
 
             // convert "+" to " "
+            for (int i = 0; i < parts.length; i++) {
+                parts[i] = parts[i].replace("+", " ");
+            }
 
             // dont get the data if there is no key-value pair 
             if (parts.length != 2) {continue;}
