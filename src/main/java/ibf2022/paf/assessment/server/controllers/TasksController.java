@@ -37,7 +37,8 @@ public class TasksController {
         Integer num = (int) taskMap.keySet().stream().filter(t -> t.startsWith("description-")).count();
 
         // Get userId from username
-        Optional<User> opt = userRepo.findUserByUsername(taskMap.get("username")); 
+        String username = taskMap.get("username"); 
+        Optional<User> opt = userRepo.findUserByUsername(username); 
         String userId = ""; 
         if (opt.isPresent()) {
             User user = opt.get(); 
