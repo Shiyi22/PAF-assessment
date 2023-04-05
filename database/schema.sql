@@ -1,7 +1,7 @@
-drop database if exists todo;
+drop database if exists bgg;
 
-create database todo;
-use todo; 
+create database bgg;
+use bgg; 
 
 create table user (
 	user_id varchar(8) not null,

@@ -7,8 +7,8 @@ insert into user values ('66223e28', 'betty', 'Betty');
 -- select * from user where username = 'fred'; 
 -- insert into user values ('', '', ''); 
 
-select * from user; 
-select * from task; 
+-- select * from user; 
+-- select * from task; 
 
-select * from user 
-left join task on task.user_id = user.user_id; 
+-- select * from user 
+-- left join task on task.user_id = user.user_id; 

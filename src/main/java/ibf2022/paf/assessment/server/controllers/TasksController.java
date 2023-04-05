@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -71,9 +72,9 @@ public class TasksController {
             Map<String, String> models = new HashMap<>(); 
             models.put("taskCount", String.valueOf(num)); 
             models.put("username", username); 
-            return new ModelAndView("/result", models, HttpStatusCode.valueOf(200)); 
+            return new ModelAndView("result.html", models, HttpStatusCode.valueOf(200)); 
         } else {
-            return new ModelAndView("/error", HttpStatusCode.valueOf(500)); 
+            return new ModelAndView("error.html", HttpStatusCode.valueOf(500)); 
         }
     }
     
